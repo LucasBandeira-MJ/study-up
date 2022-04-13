@@ -1,10 +1,11 @@
 import type { NextPage } from 'next'
+import { ExperienceBar } from '../components/ExperienceBar'
 import styles from '../styles/Home.module.sass'
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <h1>Hello World</h1>
+      <ExperienceBar />
     </div>
   )
 }
