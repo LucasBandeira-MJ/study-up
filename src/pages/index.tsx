@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { Countdown } from '../components/Countdown'
 import { ExperienceBar } from '../components/ExperienceBar'
 import { Profile } from '../components/Profile'
 import styles from '../styles/Home.module.sass'
@@ -9,6 +10,7 @@ const Home: NextPage = () => {
       <ExperienceBar />
       <main>
         <Profile />
+        <Countdown />
       </main>
     </div>
   )
