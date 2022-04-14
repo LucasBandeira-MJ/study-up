@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Clock component should match the snapshot 1`] = `
+Array [
+  <div
+    className="container"
+  >
+    <div>
+      <span>
+        0
+      </span>
+      <span>
+        5
+      </span>
+    </div>
+    <span>
+      :
+    </span>
+    <div>
+      <span>
+        2
+      </span>
+      <span>
+        3
+      </span>
+    </div>
+    <span>
+      :
+    </span>
+    <div>
+      <span>
+        4
+      </span>
+      <span>
+        5
+      </span>
+    </div>
+  </div>,
+  <button
+    className="
+            clockButton 
+            undefined
+        "
+    onClick={[Function]}
+    type="button"
+  >
+    Start
+     Timer
+  </button>,
+]
+`;

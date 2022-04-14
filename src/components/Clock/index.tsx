@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { ClockContext } from '../../context/ClockContext'
 import { ClockButton } from './ClockButton'
 import styles from './styles.module.sass'
@@ -30,6 +30,7 @@ export const Clock = () => {
                 </div>
 
             </div>
+            
             <ClockButton />
         </>
     )
