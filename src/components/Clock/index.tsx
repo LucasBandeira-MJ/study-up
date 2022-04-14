@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ClockButton } from './ClockButton'
 import styles from './styles.module.sass'
 
 
@@ -14,21 +15,25 @@ export const Clock = () => {
     const [secondsLeft, secondsRight] = String(seconds).padStart(2, '0').split('')
 
     return (
-        <div className={styles.container}>
-            <div>
-                <span>{hoursLeft}</span>
-                <span>{hoursRight}</span>
+        <>
+            <div className={styles.container}>
+                <div>
+                    <span>{hoursLeft}</span>
+                    <span>{hoursRight}</span>
+                </div>
+                    <span>:</span>
+                <div>
+                    <span>{minutesLeft}</span>
+                    <span>{minutesRight}</span>
+                </div>
+                    <span>:</span>
+                <div>
+                    <span>{secondsLeft}</span>
+                    <span>{secondsRight}</span>
+                </div>
+
             </div>
-                <span>:</span>
-            <div>
-                <span>{minutesLeft}</span>
-                <span>{minutesRight}</span>
-            </div>
-                <span>:</span>
-            <div>
-                <span>{secondsLeft}</span>
-                <span>{secondsRight}</span>
-            </div>
-        </div>
+            <ClockButton />
+        </>
     )
 }
