@@ -15,12 +15,12 @@ export const ClockButton = () => {
 
     return (
         <button type="button" className={`
-            ${styles.clockButton}
+            ${styles.clockButton} 
             ${isActive && styles.buttonActive}
         `}
         onClick={handleClick}
         >
-            {isActive ? 'Stop' : 'Start'}
+            {isActive ? 'Stop' : 'Start'} Timer
         </button>
     )
 }
