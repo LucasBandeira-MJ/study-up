@@ -2,7 +2,7 @@ import { useState } from 'react'
 import styles from './styles.module.sass'
 
 
-export const Countdown = () => {
+export const Clock = () => {
     const [time, setTime] = useState<number>(0)
 
     const hours = Math.floor(time / 3600)
