@@ -1,7 +1,9 @@
 import { useContext } from 'react'
+import { LevelContext } from '../../context/LevelContext'
 import styles from './styles.module.sass'
 
 export const Profile = () => {
+    const { level } = useContext(LevelContext)
 
     return (
         <div className={styles.profileContainer}>
@@ -10,7 +12,7 @@ export const Profile = () => {
                 <strong>Lucas Bandeira</strong>
                 <p>
                     {/* <img src="icons/level.svg" alt="level" /> */}
-                    Level <span>3</span>
+                    Level <span>{level}</span>
                 </p>
             </div>
         </div>

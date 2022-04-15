@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 let clockTimeout: NodeJS.Timeout
 
 interface ClockContextData {
+    time: number
     hours: number
     minutes: number
     seconds: number
@@ -51,6 +52,7 @@ export const ClockProvider = ({children}: ClockProviderProps) => {
 
     return (
         <ClockContext.Provider value={{
+            time,
             hours, 
             minutes, 
             seconds,
