@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExperienceBar component should match the snapshot 1`] = `
+<header
+  className="experienceBar"
+>
+  <span>
+    0 xp
+  </span>
+  <div
+    className="experienceContainer"
+  >
+    <div
+      className="experienceFill"
+      style={
+        Object {
+          "width": "3.3524904214559386%",
+        }
+      }
+    />
+    <span
+      className="currentExperience"
+      style={
+        Object {
+          "left": "3.3524904214559386%",
+        }
+      }
+    >
+      350
+       xp
+    </span>
+  </div>
+  <span>
+    10440
+     xp
+  </span>
+</header>
+`;
