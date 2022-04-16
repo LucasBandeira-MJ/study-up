@@ -18,7 +18,7 @@
 
     transition: background-color, color 0.2s
 
-    &:not(:disabled):hover
+    &:not(:disabled):hover,&:not.stopButton:hover
         background-color: var(--dark-blue)
 
     &.startButtonActive
@@ -34,3 +34,15 @@
         background-color: var(--title)
         color: var(--white)
         cursor: default
+
+    &.stopButton
+        background-color: var(--red)
+        color: var(--white)
+
+        &:hover
+            background-color: var(--dark-red)
+
+
+        &:disabled
+            opacity: 0.5
+            cursor: not-allowed

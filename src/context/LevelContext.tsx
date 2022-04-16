@@ -26,7 +26,8 @@ export const LevelProvider = ({children}: LevelProviderProps) => {
     }
 
     useEffect(() => {
-        let totalExperience = currentExperience + 1
+
+        let totalExperience = !!time ?  currentExperience + 1 : currentExperience
 
         if(totalExperience >= experienceToNextLevel) {
             totalExperience = totalExperience - experienceToNextLevel

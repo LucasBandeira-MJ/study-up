@@ -43,6 +43,7 @@ export const ClockProvider = ({children}: ClockProviderProps) => {
     const stopClock = () => {
         clearInterval(clockTimeout)
         setIsActive(false)
+        setTime(0)
     }
 
 

@@ -2,11 +2,18 @@ import { useContext, useState } from 'react'
 import { ClockContext } from '../../../context/ClockContext'
 import styles from './styles.module.sass'
 
-export const ClockButton = () => {
-    const { isActive, startClock, pauseClock } = useContext(ClockContext)
+interface ClockButtonProps {
+    variant?: string
+}
+
+export const ClockButton = ({ variant }: ClockButtonProps) => {
+    const { isActive, startClock, pauseClock, stopClock } = useContext(ClockContext)
+    const isStopVariant = variant === 'stop'
 
     const handleClick = () => {
-        if(isActive) {
+        if(isStopVariant) {
+            stopClock()
+        }else if(isActive) {
             pauseClock()
         } else {
             startClock()
@@ -16,11 +23,12 @@ export const ClockButton = () => {
     return (
         <button type="button" className={`
             ${styles.clockButton} 
-            ${isActive && styles.buttonActive}
+            ${isStopVariant ? styles.stopButton : isActive && styles.buttonActive}
         `}
         onClick={handleClick}
+        disabled={isStopVariant && isActive}
         >
-            {isActive ? 'Stop' : 'Start'} Timer
+            {isStopVariant ? 'Stop' : isActive ? 'Pause' : 'Start'} Timer
         </button>
     )
 }

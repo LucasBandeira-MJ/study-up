@@ -5,7 +5,7 @@ import styles from './styles.module.sass'
 
 
 export const Clock = () => {
-    const { hours, minutes, seconds } = useContext(ClockContext)
+    const { hours, minutes, seconds, time } = useContext(ClockContext)
 
     const [hoursLeft, hoursRight] = String(hours).padStart(2, '0').split('')
     const [minutesLeft, minutesRight] = String(minutes).padStart(2, '0').split('')
@@ -30,8 +30,10 @@ export const Clock = () => {
                 </div>
 
             </div>
-            
-            <ClockButton />
+            <div className={styles.buttonContainer}>
+                <ClockButton />
+                { !!time && <ClockButton variant='stop' /> }
+            </div>
         </>
     )
 }
