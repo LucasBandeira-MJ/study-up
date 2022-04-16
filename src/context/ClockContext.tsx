@@ -8,9 +8,11 @@ interface ClockContextData {
     minutes: number
     seconds: number
     isActive: boolean
+    showLevelingModal: boolean
     startClock: () => void
     pauseClock: () => void
     stopClock: () => void
+    closeLevelingModal: () => void
 }
 
 interface ClockProviderProps {
@@ -22,6 +24,8 @@ export const ClockContext = createContext({} as ClockContextData)
 export const ClockProvider = ({children}: ClockProviderProps) => {
     const [time, setTime] = useState<number>(0)
     const [isActive, setIsActive] = useState<boolean>(false)
+    const [showLevelingModal, setShowLevelingModal] = useState<boolean>(false)
+
 
     useEffect(() => {
         if(isActive) {
@@ -43,6 +47,11 @@ export const ClockProvider = ({children}: ClockProviderProps) => {
     const stopClock = () => {
         clearInterval(clockTimeout)
         setIsActive(false)
+        setShowLevelingModal(true)
+    }
+
+    const closeLevelingModal = () => {
+        setShowLevelingModal(false)
         setTime(0)
     }
 
@@ -58,9 +67,11 @@ export const ClockProvider = ({children}: ClockProviderProps) => {
             minutes, 
             seconds,
             isActive,
+            showLevelingModal,
             startClock,
             pauseClock,
-            stopClock
+            stopClock,
+            closeLevelingModal
         }}>
             {children}
         </ClockContext.Provider>
