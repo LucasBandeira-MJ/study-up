@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import { Clock } from '../components/Clock'
 import { ExperienceBar } from '../components/ExperienceBar'
+import { OptionsButton } from '../components/OptionsButton'
 import { Profile } from '../components/Profile'
 import { ClockProvider } from '../context/ClockContext'
 import { LevelProvider } from '../context/LevelContext'
@@ -13,7 +14,10 @@ const Home: NextPage = () => {
         <div className={styles.container}>
           <ExperienceBar />
           <main>
-            <Profile />
+            <section className={styles.infoContainer}>
+              <Profile />
+              <OptionsButton />
+            </section>
             <Clock /> 
           </main>
         </div>

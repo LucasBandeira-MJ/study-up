@@ -11,7 +11,6 @@ export const Profile = () => {
             <div>
                 <strong>Lucas Bandeira</strong>
                 <p>
-                    {/* <img src="icons/level.svg" alt="level" /> */}
                     Level <span>{level}</span>
                 </p>
             </div>

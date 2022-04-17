@@ -11,10 +11,14 @@ export const LevelingModal = () => {
     return (
         <Modal
             isOpen={showLevelingModal}
+            className={styles.levelingModal}
         >
-         <header>On this session you've earned</header>   
-         <p>{totalExperience} xp</p>
-         <p>{totalLevelUps} Levels</p>
+        <header>You've earned</header>   
+        <p>
+            <span>{totalExperience}</span> xp
+        </p>
+         {!!totalLevelUps && <p><span>{totalLevelUps}</span> Levels</p>}
+         
          <button type="button" onClick={closeLevelingModal}>
              Cool!
          </button>
