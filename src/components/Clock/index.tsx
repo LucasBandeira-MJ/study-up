@@ -5,7 +5,11 @@ import styles from './styles.module.sass'
 
 
 export const Clock = () => {
-    const { hours, minutes, seconds, time } = useContext(ClockContext)
+    const { time } = useContext(ClockContext)
+
+    const hours = Math.floor(time / 3600)
+    const minutes = Math.floor(time / 60 - hours * 60)
+    const seconds = Math.floor(time % 60)
 
     const [hoursLeft, hoursRight] = String(hours).padStart(2, '0').split('')
     const [minutesLeft, minutesRight] = String(minutes).padStart(2, '0').split('')

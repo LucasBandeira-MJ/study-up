@@ -32,7 +32,6 @@ export const LevelProvider = ({children}: LevelProviderProps) => {
     }
 
     useEffect(() => {
-        console.log('uh')
         let finalExperience = !!time ?  currentExperience + 1 : currentExperience
         let totalExp = !! time ? totalExperience + 1 : totalExperience
 

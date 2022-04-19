@@ -4,9 +4,6 @@ let clockTimeout: NodeJS.Timeout
 
 interface ClockContextData {
     time: number
-    hours: number
-    minutes: number
-    seconds: number
     isActive: boolean
     showLevelingModal: boolean
     startClock: () => void
@@ -56,16 +53,11 @@ export const ClockProvider = ({children}: ClockProviderProps) => {
     }
 
 
-    const hours = Math.floor(time / 3600)
-    const minutes = Math.floor(time / 60 - hours * 60)
-    const seconds = Math.floor(time % 60)
+    
 
     return (
         <ClockContext.Provider value={{
             time,
-            hours, 
-            minutes, 
-            seconds,
             isActive,
             showLevelingModal,
             startClock,
