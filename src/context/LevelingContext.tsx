@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { LevelingModal } from "../components/LevelingModal";
 
 let clockTimeout: NodeJS.Timeout
 
@@ -97,6 +98,7 @@ export const LevelingProvider = ({ children }: LevelingProviderProps) => {
             closeLevelingModal
         }}>
             {children}
+            <LevelingModal />
         </LevelingContext.Provider>
     )
 }

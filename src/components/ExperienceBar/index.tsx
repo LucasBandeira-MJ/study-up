@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import { LevelContext } from '../../context/LevelContext'
+import { LevelingContext } from '../../context/LevelingContext'
 import styles from './styles.module.sass'
 
 export const ExperienceBar = () => {
-    const { currentExperience, experienceToNextLevel, totalLevelUps } = useContext(LevelContext)
+    const { currentExperience, experienceToNextLevel } = useContext(LevelingContext)
 
     const percentToNextLevel = Math.round(currentExperience * 100) / experienceToNextLevel
 

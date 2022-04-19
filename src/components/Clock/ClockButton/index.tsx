@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import { ClockContext } from '../../../context/ClockContext'
+import { LevelingContext } from '../../../context/LevelingContext'
 import styles from './styles.module.sass'
 
 interface ClockButtonProps {
@@ -7,28 +7,26 @@ interface ClockButtonProps {
 }
 
 export const ClockButton = ({ variant }: ClockButtonProps) => {
-    const { isActive, startClock, pauseClock, stopClock } = useContext(ClockContext)
+    const { isClockActive, handleClock, stopClock } = useContext(LevelingContext)
     const isStopVariant = variant === 'stop'
 
     const handleClick = () => {
         if(isStopVariant) {
             stopClock()
-        }else if(isActive) {
-            pauseClock()
         } else {
-            startClock()
+            handleClock()
         }
     }
 
     return (
         <button type="button" className={`
             ${styles.clockButton} 
-            ${isStopVariant ? styles.stopButton : isActive && styles.buttonActive}
+            ${isStopVariant ? styles.stopButton : isClockActive && styles.buttonActive}
         `}
         onClick={handleClick}
-        disabled={isStopVariant && isActive}
+        disabled={isStopVariant && isClockActive}
         >
-            {isStopVariant ? 'Stop' : isActive ? 'Pause' : 'Start'} Timer
+            {isStopVariant ? 'Stop' : isClockActive ? 'Pause' : 'Start'} Timer
         </button>
     )
 }

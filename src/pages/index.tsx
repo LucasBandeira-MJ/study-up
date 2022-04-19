@@ -3,14 +3,12 @@ import { Clock } from '../components/Clock'
 import { ExperienceBar } from '../components/ExperienceBar'
 import { OptionsButton } from '../components/OptionsButton'
 import { Profile } from '../components/Profile'
-import { ClockProvider } from '../context/ClockContext'
-import { LevelProvider } from '../context/LevelContext'
+import { LevelingProvider } from '../context/LevelingContext'
 import styles from '../styles/Home.module.sass'
 
 const Home: NextPage = () => {
   return (
-    <ClockProvider>
-      <LevelProvider>
+    <LevelingProvider>
         <div className={styles.container}>
           <ExperienceBar />
           <main>
@@ -21,8 +19,7 @@ const Home: NextPage = () => {
             <Clock /> 
           </main>
         </div>
-      </LevelProvider>
-    </ClockProvider>
+      </LevelingProvider>
   )
 }
 

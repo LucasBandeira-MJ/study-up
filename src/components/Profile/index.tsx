@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import { LevelContext } from '../../context/LevelContext'
+import { LevelingContext } from '../../context/LevelingContext'
 import styles from './styles.module.sass'
 
 export const Profile = () => {
-    const { level } = useContext(LevelContext)
+    const { level } = useContext(LevelingContext)
 
     return (
         <div className={styles.profileContainer}>

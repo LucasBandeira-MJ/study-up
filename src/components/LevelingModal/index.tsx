@@ -2,12 +2,16 @@ import styles from './styles.module.sass'
 
 import Modal from 'react-modal'
 import { useContext } from 'react'
-import { LevelContext } from '../../context/LevelContext'
-import { ClockContext } from '../../context/ClockContext'
+import { LevelingContext } from '../../context/LevelingContext'
 
 export const LevelingModal = () => {
-    const { totalExperience, totalLevelUps } = useContext(LevelContext)
-    const { showLevelingModal, closeLevelingModal } = useContext(ClockContext)
+    const { 
+            totalExperience, 
+            totalLevelUps, 
+            showLevelingModal, 
+            closeLevelingModal 
+        } = useContext(LevelingContext)
+
     return (
         <Modal
             isOpen={showLevelingModal}

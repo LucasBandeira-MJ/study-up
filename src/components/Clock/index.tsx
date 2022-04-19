@@ -1,11 +1,11 @@
 import { useContext } from 'react'
-import { ClockContext } from '../../context/ClockContext'
+import { LevelingContext } from '../../context/LevelingContext'
 import { ClockButton } from './ClockButton'
 import styles from './styles.module.sass'
 
 
 export const Clock = () => {
-    const { time } = useContext(ClockContext)
+    const { time } = useContext(LevelingContext)
 
     const hours = Math.floor(time / 3600)
     const minutes = Math.floor(time / 60 - hours * 60)
