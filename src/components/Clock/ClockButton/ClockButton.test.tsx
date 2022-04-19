@@ -2,14 +2,14 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { ClockButton } from '.'
-import { ClockContext } from '../../../context/ClockContext'
+import { LevelingContext } from '../../../context/LevelingContext'
 
 describe("ClockButton component", () => {
     it("Should render properly when timer is not active", () => {
         render(
-            <ClockContext.Provider value={{isActive: false} as any}>
+            <LevelingContext.Provider value={{isClockActive: false} as any}>
                 <ClockButton />
-            </ClockContext.Provider>
+            </LevelingContext.Provider>
         )
 
         expect(screen.getByText(/Start Timer/i)).toBeInTheDocument()
@@ -17,44 +17,43 @@ describe("ClockButton component", () => {
     
     it("Should render properly when timer is active", () => {
         render(
-            <ClockContext.Provider value={{isActive: true} as any}>
+            <LevelingContext.Provider value={{isClockActive: true} as any}>
                 <ClockButton />
-            </ClockContext.Provider>
+            </LevelingContext.Provider>
         )
 
-        expect(screen.getByText(/Stop Timer/i)).toBeInTheDocument()
+        expect(screen.getByText(/Pause Timer/i)).toBeInTheDocument()
     })
 
-    it('should start timer when button is clicked', () => {
-        const startClock = jest.fn()
+    it('should trigger handleClock function when the button is clicked', () => {
+        const handleClock = jest.fn()
 
         render(
-            <ClockContext.Provider value={{isActive: false, startClock} as any}>
+            <LevelingContext.Provider value={{isClockActive: false, handleClock} as any}>
                 <ClockButton />
-            </ClockContext.Provider>
+            </LevelingContext.Provider>
         )
 
         const clockBtn = screen.getByText(/Start Timer/i)
         fireEvent.click(clockBtn)
 
-        expect(startClock).toHaveBeenCalled()
+        expect(handleClock).toHaveBeenCalled()
     })
 
     
-
-    it('should pause timer when button is clicked', () => {
-        const pauseClock = jest.fn()
+    it('should Stop timer when button is clicked', () => {
+        const stopClock = jest.fn()
 
         render(
-            <ClockContext.Provider value={{isActive: true, pauseClock} as any}>
-                <ClockButton />
-            </ClockContext.Provider>
+            <LevelingContext.Provider value={{stopClock} as any}>
+                <ClockButton variant="stop" />
+            </LevelingContext.Provider>
         )
 
         const clockBtn = screen.getByText(/Stop Timer/i)
         fireEvent.click(clockBtn)
 
-        expect(pauseClock).toHaveBeenCalled()
+        expect(stopClock).toHaveBeenCalled()
     })
 
 })

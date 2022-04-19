@@ -36,16 +36,32 @@ Array [
       </span>
     </div>
   </div>,
-  <button
-    className="
+  <div
+    className="buttonContainer"
+  >
+    <button
+      className="
             clockButton 
             undefined
         "
-    onClick={[Function]}
-    type="button"
-  >
-    Start
-     Timer
-  </button>,
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Start
+       Timer
+    </button>
+    <button
+      className="
+            clockButton 
+            stopButton
+        "
+      onClick={[Function]}
+      type="button"
+    >
+      Stop
+       Timer
+    </button>
+  </div>,
 ]
 `;

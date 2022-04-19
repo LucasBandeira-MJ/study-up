@@ -6,7 +6,7 @@ import { LevelingContext } from "../../context/LevelingContext"
 describe("Clock component", () => {
     it('should render correctly', () => {
         render(
-            <LevelingContext.Provider value={{ hours: 2, minutes: 53, seconds: 14 } as any}>
+            <LevelingContext.Provider value={{ time: 10394 } as any}>
                 <Clock />
             </LevelingContext.Provider>
         )
@@ -29,7 +29,7 @@ describe("Clock component", () => {
     it('should match the snapshot', () => {
         const snapshot = renderer
             .create(
-                <LevelingContext.Provider value={{hours: 5, minutes: 23, seconds: 45} as any}>
+                <LevelingContext.Provider value={{ time: 19425 } as any}>
                     <Clock />
                 </LevelingContext.Provider>
             ).toJSON()

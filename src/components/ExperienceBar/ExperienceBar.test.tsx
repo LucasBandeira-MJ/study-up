@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react"
 import { ExperienceBar } from "."
-import { LevelContext } from "../../context/LevelContext"
+import { LevelingContext } from "../../context/LevelingContext"
 import renderer from 'react-test-renderer'
 
 
 describe("ExperienceBar component", () => {
     it("should render correctly", () => {
         render (
-            <LevelContext.Provider value={{ currentExperience: 300, experienceToNextLevel: 1440  } as any }>
+            <LevelingContext.Provider value={{ currentExperience: 300, experienceToNextLevel: 1440  } as any }>
                 <ExperienceBar />
-            </LevelContext.Provider>
+            </LevelingContext.Provider>
         )
 
         const initialExperience = screen.queryAllByText(/0 xp/)[0]
@@ -24,9 +24,9 @@ describe("ExperienceBar component", () => {
     it('should match the snapshot', () => {
         const snapshot = renderer
             .create(
-                <LevelContext.Provider value={{ currentExperience: 350, experienceToNextLevel: 10440 } as any}>
+                <LevelingContext.Provider value={{ currentExperience: 350, experienceToNextLevel: 10440 } as any}>
                     <ExperienceBar />
-                </LevelContext.Provider>
+                </LevelingContext.Provider>
             ).toJSON()
 
             expect(snapshot).toMatchSnapshot()
