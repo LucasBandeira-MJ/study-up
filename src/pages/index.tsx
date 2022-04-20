@@ -1,18 +1,21 @@
 import type { NextPage } from 'next'
-import { useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Clock } from '../components/Clock'
 import { ExperienceBar } from '../components/ExperienceBar'
 import { OptionsButton } from '../components/OptionsButton'
 import { Profile } from '../components/Profile'
-import { LevelingProvider } from '../context/LevelingContext'
+import { ContextProvider } from '../context/ContextProvider'
+import { OptionsContext } from '../context/OptionsContext'
 import styles from '../styles/Home.module.sass'
 
 const Home: NextPage = () => {
+  const { isDarkMode } = useContext(OptionsContext)
+  
   useEffect(() => {
-    document.body.dataset.theme = 'light'
-  }, [])
+    document.body.dataset.theme = isDarkMode ? 'dark' : 'light'
+  }, [isDarkMode])
+
   return (
-    <LevelingProvider>
         <div className={styles.container}>
           <ExperienceBar />
           <main>
@@ -23,7 +26,6 @@ const Home: NextPage = () => {
             <Clock /> 
           </main>
         </div>
-      </LevelingProvider>
   )
 }
 

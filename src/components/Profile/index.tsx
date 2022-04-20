@@ -10,9 +10,7 @@ export const Profile = () => {
             <img src="https://github.com/LucasBandeira-MJ.png" alt="Lucas Bandeira" />
             <div>
                 <strong>Lucas Bandeira</strong>
-                <p>
-                    Level <span>{level}</span>
-                </p>
+                <p> Level {level} </p>
             </div>
         </div>
     )
