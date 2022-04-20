@@ -4,9 +4,14 @@ import { IoMdClose } from 'react-icons/io'
 import { useContext } from 'react'
 import Modal from 'react-modal'
 import { OptionsContext } from '../../context/OptionsContext'
+import { OptionSwitch } from './OptionSwitch'
 
 export const OptionsModal = () => {
     const { isOptionsModalOpen, isDarkMode, toggleTheme, closeOptionsModal } = useContext(OptionsContext)
+
+    const handleThemeChange = () => {
+        toggleTheme()
+    }
 
     return (
         <Modal 
@@ -18,12 +23,11 @@ export const OptionsModal = () => {
                     Dark mode
                 </label>
 
-                <input 
-                    type="checkbox" 
-                    id="darkmode" 
-                    onChange={toggleTheme}
-                    checked={isDarkMode} 
-                />
+                <OptionSwitch
+                    onHandleChange={handleThemeChange}
+                    isChecked={isDarkMode}
+                    switchId={'darkmode'}
+                 />
             </div>
 
             <button className={styles.closeModal} onClick={closeOptionsModal}>
