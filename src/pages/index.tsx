@@ -23,7 +23,9 @@ const Home: NextPage = () => {
               <Profile />
               <OptionsButton />
             </section>
-            <Clock /> 
+            <section className={styles.clockContainer}>
+              <Clock /> 
+            </section>
           </main>
         </div>
   )

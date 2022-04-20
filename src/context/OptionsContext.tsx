@@ -10,6 +10,7 @@ interface OptionsContextData {
     isOptionsModalOpen: boolean
     toggleTheme: () =>  void
     openOptionsModal: () => void
+    closeOptionsModal: () => void
 }
 
 export const OptionsContext = createContext({} as OptionsContextData)
@@ -20,19 +21,20 @@ export const OptionsProvider = ({children}: OptionsProviderProps) => {
 
     const toggleTheme = () => {
         setIsDarkMode(theme => !theme)
-        setIsOptionsModalOpen(false)
     }
 
-    const openOptionsModal = () => {
-        setIsOptionsModalOpen(true)
-    }
+    const openOptionsModal = () => setIsOptionsModalOpen(true) 
+    const closeOptionsModal = () => setIsOptionsModalOpen(false) 
+
+
 
     return (
         <OptionsContext.Provider value={{ 
             isDarkMode, 
             isOptionsModalOpen,
             toggleTheme,
-            openOptionsModal
+            openOptionsModal,
+            closeOptionsModal
         }}>
             {children}
             <OptionsModal />
