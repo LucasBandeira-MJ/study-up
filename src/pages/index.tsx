@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { Clock } from '../components/Clock'
 import { ExperienceBar } from '../components/ExperienceBar'
@@ -9,6 +10,7 @@ import { OptionsContext } from '../context/OptionsContext'
 import styles from '../styles/Home.module.sass'
 
 const Home: NextPage = () => {
+  const router = useRouter()
   const { isDarkMode } = useContext(OptionsContext)
   
   useEffect(() => {

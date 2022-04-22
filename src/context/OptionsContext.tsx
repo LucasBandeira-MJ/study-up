@@ -16,8 +16,8 @@ interface OptionsContextData {
 export const OptionsContext = createContext({} as OptionsContextData)
 
 export const OptionsProvider = ({children}: OptionsProviderProps) => {
+    const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(false)
     const [isDarkMode, setIsDarkMode] = useState(false)
-    const [isOptionsModalOpen, setIsOptionsModalOpen] = useState(true)
 
     const toggleTheme = () => {
         setIsDarkMode(theme => !theme)
