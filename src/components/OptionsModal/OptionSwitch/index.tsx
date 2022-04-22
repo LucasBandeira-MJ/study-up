@@ -1,7 +1,7 @@
 import styles from './styles.module.sass'
 
 interface OptionSwitchProps {
-    onHandleChange: () => void
+    onHandleChange?: () => void
     isChecked?: boolean
     switchId: string
 }

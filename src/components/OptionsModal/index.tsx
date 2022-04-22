@@ -18,17 +18,37 @@ export const OptionsModal = () => {
             isOpen={isOptionsModalOpen}
             className={styles.optionsModal}
         >
-            <div className={styles.inputController}>
-                <label htmlFor="darkmode">
-                    Dark mode
+        <div className={styles.inputController}>
+            <label htmlFor="darkmode">
+                Dark mode
+            </label>
+
+            <OptionSwitch
+                onHandleChange={handleThemeChange}
+                isChecked={isDarkMode}
+                switchId={'darkmode'}
+             />
+        </div>
+        
+        <div className={styles.inputController}>
+                <label htmlFor="quests">
+                    Side Quests
                 </label>
 
                 <OptionSwitch
-                    onHandleChange={handleThemeChange}
-                    isChecked={isDarkMode}
-                    switchId={'darkmode'}
+                    switchId={'quests'}
                  />
-            </div>
+        </div>
+
+        <div className={styles.inputController}>
+                <label htmlFor="notifications">
+                    Notifications
+                </label>
+
+                <OptionSwitch
+                    switchId={'notifications'}
+                 />
+        </div>
 
             <button className={styles.closeModal} onClick={closeOptionsModal}>
                 <IoMdClose />
