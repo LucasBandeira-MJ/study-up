@@ -8,12 +8,12 @@ const Login = () => {
             <div className={styles.loginContainer}>
 
                 <h1>
-                    studyUp!
+                    studyUp
                 </h1> 
 
-                <strong>Welcome</strong>
+                <strong>Welcome!</strong>
                 <p>
-                    Let's study up till the next level in your carreer.
+                    Let's study till the <span>Next Level</span>
                 </p>
                 <SignInButton />
             </div>

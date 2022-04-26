@@ -1,5 +1,6 @@
 import { LevelingProvider } from "./LevelingContext"
 import { OptionsProvider } from "./OptionsContext"
+import { SessionProvider } from 'next-auth/react'
 
 interface ContextProviderProps {
     children: React.ReactNode
@@ -7,10 +8,12 @@ interface ContextProviderProps {
 
 export const ContextProvider = ({children}: ContextProviderProps) => {
     return (
-        <OptionsProvider>
-            <LevelingProvider>
-                {children}
-            </LevelingProvider>
-        </OptionsProvider>
+        <SessionProvider>
+            <OptionsProvider>
+                <LevelingProvider>
+                    {children}
+                </LevelingProvider>
+            </OptionsProvider>
+        </SessionProvider>
     )
 }
