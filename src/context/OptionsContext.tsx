@@ -26,8 +26,6 @@ export const OptionsProvider = ({children}: OptionsProviderProps) => {
     const openOptionsModal = () => setIsOptionsModalOpen(true) 
     const closeOptionsModal = () => setIsOptionsModalOpen(false) 
 
-
-
     return (
         <OptionsContext.Provider value={{ 
             isDarkMode, 
