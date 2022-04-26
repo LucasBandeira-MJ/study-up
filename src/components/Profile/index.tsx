@@ -11,7 +11,7 @@ export const Profile = () => {
 
     return (
         <div className={styles.profileContainer}>
-            <img src={session?.user?.image || undefined} alt="Lucas Bandeira" />
+            <img src={session?.user?.image || undefined} alt="Profile picture" />
             <div>
                 <strong>{session?.user?.name}</strong>
                 <p> Level {level} </p>
