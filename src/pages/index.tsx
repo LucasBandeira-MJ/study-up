@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useContext, useEffect } from 'react'
 import { Clock } from '../components/Clock'
 import { ExperienceBar } from '../components/ExperienceBar'
+import { FullPageLoader } from '../components/FullPageLoader'
 import { OptionsButton } from '../components/OptionsButton'
 import { Profile } from '../components/Profile'
 import { OptionsContext } from '../context/OptionsContext'
@@ -11,18 +12,22 @@ import styles from '../styles/Home.module.sass'
 
 const Home: NextPage = () => {
   const router = useRouter()
-  const { status } = useSession()
   const { isDarkMode } = useContext(OptionsContext)
 
-  useEffect(() => {
-    if(status === 'unauthenticated') {
+  const { status } = useSession({
+    required: true,
+    onUnauthenticated() {
       router.push('/login')
-    }
-  }, [status])
+    },
+  })
 
-  useEffect(() => {
-    document.body.dataset.theme = isDarkMode ? 'dark' : 'light'
-  }, [isDarkMode])
+  // useEffect(() => {
+  //   document.body.dataset.theme = isDarkMode ? 'dark' : 'light'
+  // }, [isDarkMode])
+
+  if (status === "loading") {
+    return <FullPageLoader />
+  }
 
   return (
         <div className={styles.container}>
