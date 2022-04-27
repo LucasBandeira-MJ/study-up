@@ -4,6 +4,7 @@ import { StudyUpIcon } from '../../components/StudyUpIcon';
 import { useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { FullPageLoader } from '../../components/FullPageLoader';
 
 const Login = () => {
     const { status } = useSession()
@@ -14,6 +15,10 @@ const Login = () => {
             router.push('/')
         }
     }, [status])
+    
+    if (status === "loading") {
+        return <FullPageLoader />
+    }
 
     return (
         <div className={styles.container}>
