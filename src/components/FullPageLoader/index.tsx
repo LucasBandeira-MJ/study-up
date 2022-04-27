@@ -1,9 +1,9 @@
-import styles from './styles.module.sass'
+import styles from './styles.module.scss'
 
 export const FullPageLoader = () => {
     return (
-        <h1>
-            Loading...
-        </h1>
+        <div className={styles.container}>
+            <div className={styles.ldsEllipsis}><div></div><div></div><div></div></div>
+        </div>
     )
 }
