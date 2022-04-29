@@ -21,9 +21,9 @@ const Home: NextPage = () => {
     },
   })
 
-  // useEffect(() => {
-  //   document.body.dataset.theme = isDarkMode ? 'dark' : 'light'
-  // }, [isDarkMode])
+  useEffect(() => {
+    document.body.dataset.theme = isDarkMode ? 'dark' : 'light'
+  }, [isDarkMode])
 
   if (status === "loading") {
     return <FullPageLoader />
